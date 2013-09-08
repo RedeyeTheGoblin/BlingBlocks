@@ -1,5 +1,6 @@
 package BlingBlocks;
 
+import BlingBlocks.config.ConfigHandler;
 import BlingBlocks.network.PacketHandler;
 import BlingBlocks.proxies.CommonProxy;
 import cpw.mods.fml.common.Mod;
@@ -12,10 +13,10 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
 
-@Mod(modid = "BlingBlocks", name = "Bling blocks", version = "0.01")
-@NetworkMod(channels = {"Bling"}, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
+@Mod(modid = Modi.ID, name = Modi.NAME, version = Modi.VERSION)
+@NetworkMod(channels = {Modi.CHANEL}, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 public class BlingBlocks {
-	@Instance("BlingBlocks")
+	@Instance(Modi.ID)
 	public static BlingBlocks instance;
 	
 	@SidedProxy(clientSide = "BlingBlocks.proxies.ClientProxy", serverSide = "BlingBlocks.proxies.CommonProxy")
@@ -23,8 +24,10 @@ public class BlingBlocks {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
+		ConfigHandler.init(event.getSuggestedConfigurationFile());
 		proxy.initSounds();
 		proxy.initRenderers();
+		
 	}
 	
 	@EventHandler
