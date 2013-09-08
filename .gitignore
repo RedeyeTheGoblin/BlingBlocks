@@ -1,0 +1,19 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+/assets
+/cpw
+/ibxm
+/net
+/paulscode
+
+*.lzma
+fml*.cfg
+fml*.properties
+forge_logo.png
+mcpmod.info
+Start.java
