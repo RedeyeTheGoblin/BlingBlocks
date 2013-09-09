@@ -1,5 +1,6 @@
 package BlingBlocks;
 
+import BlingBlocks.blocks.Blocks;
 import BlingBlocks.config.ConfigHandler;
 import BlingBlocks.network.PacketHandler;
 import BlingBlocks.proxies.CommonProxy;
@@ -25,6 +26,9 @@ public class BlingBlocks {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
+		
+		Blocks.init();
+		
 		proxy.initSounds();
 		proxy.initRenderers();
 		
@@ -32,6 +36,7 @@ public class BlingBlocks {
 	
 	@EventHandler
 	public void load(FMLInitializationEvent event){
+		Blocks.addNames();
 		
 	}
 	
