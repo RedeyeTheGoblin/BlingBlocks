@@ -35,7 +35,7 @@ public class BlockPaperwall extends Block{
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IconRegister register){
-		pwallside = register.registerIcon(Modi.ID+":"+TEXTURE);
+		pwallside = register.registerIcon(Modi.TEXTURES+":"+TEXTURE);
 	}
 	
 	@SideOnly(Side.CLIENT)
